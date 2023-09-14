@@ -17,7 +17,7 @@ export default Projects;
 function Project(props) {
     const { name, desc, img, link } = props.project;
     return(
-        <article className="Projects__ticket">
+        <article className="Projects__card">
             <a href={link}>
                 <img src={img} alt="project pic"/>
             </a>
