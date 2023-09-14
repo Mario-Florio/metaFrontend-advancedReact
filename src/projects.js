@@ -1,7 +1,7 @@
-import bugTrackerImg from "./bugTracker.png";
-import simpleCalcImg from "./simpleCalc.png";
-import littleLemonImg from "./littleLemon.png";
-import weatherAppImg from "./weatherApp.png";
+import bugTrackerImg from "./images/bugTracker.png";
+import simpleCalcImg from "./images/simpleCalc.png";
+import littleLemonImg from "./images/littleLemon.png";
+import weatherAppImg from "./images/weatherApp.png";
 
 class Project {
     constructor(name, desc, img, link) {

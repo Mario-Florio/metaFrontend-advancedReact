@@ -1,4 +1,4 @@
-import profilePic from "../profile-pic.jpeg";
+import profilePic from "../images/profile-pic.jpeg";
 
 function Landing() {
 

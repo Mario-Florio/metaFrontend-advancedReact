@@ -16,7 +16,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1rem;
+    padding: 0 2rem;
     height: 3rem;
     width: 100%;
     color: white;
@@ -48,7 +48,7 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 1rem;
+    padding: 0 2rem;
     height: 100vh;
     background-color: aqua;
 }
@@ -70,7 +70,7 @@ header {
 
 /* Projects */
 .Projects {
-    padding: 2rem 1rem;
+    padding: 2rem 2rem;
     background-color: antiquewhite;
 }
 
@@ -111,7 +111,7 @@ header {
     justify-content: center;
     align-items: center;
     color: white;
-    padding: 2rem 1rem;
+    padding: 2rem 2rem;
     background-color: cadetblue;
 }
 
