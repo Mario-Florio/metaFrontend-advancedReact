@@ -35,27 +35,29 @@ function Contact() {
         <section className="Contact">
             <h3>Contact Me</h3>
             <form onSubmit={e => e.preventDefault()}>
-                <label htmlFor="name" id="name">
+                <label htmlFor="name">
                     Name
                 </label>
                 <input 
                     type="text" 
                     name="name"
                     id="name"
+                    autoComplete="on"
                     value={nameInput} 
                     onChange={handleNameChange}
                 />
-                <label htmlFor="email" id="email">
+                <label htmlFor="email">
                     Email Address
                 </label>
                 <input 
                     type="text"
                     name="email"
                     id="email"
+                    autoComplete="on"
                     value={emailInput}
                     onChange={handleEmailChange}
                     />
-                <label htmlFor="msg" id="msg">
+                <label htmlFor="msg">
                     Your message
                 </label>
                 <textarea
