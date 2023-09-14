@@ -1,4 +1,11 @@
 
+/* General */
+h3 {
+    text-align: center;
+    font-size: 1.7rem;
+    margin: 0 0 2rem 0;
+}
+
 /* Nav */
 header {
     position: sticky;
@@ -67,12 +74,6 @@ header {
     background-color: antiquewhite;
 }
 
-.Projects h3 {
-    text-align: center;
-    font-size: 1.7rem;
-    margin: 0 0 2rem 0;
-}
-
 .Projects__grid {
     display: grid;
     justify-content: center;
@@ -84,7 +85,7 @@ header {
 .Projects__ticket {
     background-color: white;
     border-radius: .5rem;
-    box-shadow: .2rem .2rem 2rem rgba(0, 0, 0, 0.354);
+    box-shadow: .2rem .2rem .5rem rgba(0, 0, 0, 0.354);
 }
 
 .Projects__ticket img {
@@ -104,10 +105,43 @@ header {
 /* Contact */
 .Contact {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    color: white;
+    padding: 2rem 1rem;
     background-color: cadetblue;
+}
+
+.Contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: 100%;
+}
+
+.Contact input, .Contact textarea {
+    border: none;
+    border-radius: .3rem;
+    margin-top: .1rem;
+    margin-bottom: .5rem;
+    box-shadow:  .2rem .2rem .5rem rgba(0, 0, 0, 0.354);
+    resize: none;
+}
+
+.Contact button {
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: .3rem;
+    padding: .5em;
+    background-color: rgb(134, 195, 197);
+    box-shadow:  .2rem .2rem .5rem rgba(0, 0, 0, 0.354);
+    cursor: pointer;
+}
+
+.Contact button:hover {
+    background-color: rgb(127, 178, 181);
 }
 
 /* Footer */
