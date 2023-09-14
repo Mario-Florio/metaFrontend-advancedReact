@@ -1,11 +1,28 @@
+import { bugTracker } from "../projects";
 
 function Projects() {
 
     return(
         <section className="Projects">
-            projects
+            <h3>Featured Projects</h3>
+            <div className="Projects__grid">
+                <Project project={bugTracker}/>
+            </div>
         </section>
     );
 }
 
 export default Projects;
+
+function Project(props) {
+    const { name, desc, img, link } = props.project;
+    return(
+        <article className="Projects__ticket">
+            <a href={link}>
+                <img src={img} alt="project pic"/>
+            </a>
+            <h4>{name}</h4>
+            <p>{desc}</p>
+        </article>
+    );
+}

@@ -1,4 +1,5 @@
 
+/* Nav */
 header {
     position: sticky;
     top: 0;
@@ -34,6 +35,7 @@ header {
     color: red;
 }
 
+/* Landing/About */
 .Landing {
     display: flex;
     flex-direction: column;
@@ -59,14 +61,47 @@ header {
     height: 10rem;
 }
 
+/* Projects */
 .Projects {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    padding: 2rem 1rem;
     background-color: antiquewhite;
 }
 
+.Projects h3 {
+    text-align: center;
+    font-size: 1.7rem;
+    margin: 0 0 2rem 0;
+}
+
+.Projects__grid {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 300px));
+    gap: 1rem;
+}
+
+.Projects__ticket {
+    background-color: white;
+    border-radius: .5rem;
+    box-shadow: .2rem .2rem 2rem rgba(0, 0, 0, 0.354);
+}
+
+.Projects__ticket img {
+    width: 100%;
+    border-radius: .5rem;
+}
+
+.Projects__ticket h4 {
+    margin: .5rem .5rem;
+}
+
+.Projects__ticket p {
+    font-size: .9rem;
+    margin: .5rem;
+}
+
+/* Contact */
 .Contact {
     display: flex;
     justify-content: center;
@@ -75,6 +110,7 @@ header {
     background-color: cadetblue;
 }
 
+/* Footer */
 footer {
     display: flex;
     justify-content: center;
