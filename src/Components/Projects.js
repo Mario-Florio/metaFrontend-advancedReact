@@ -1,4 +1,4 @@
-import { bugTracker } from "../projects";
+import { projects } from "../projects";
 
 function Projects() {
 
@@ -6,7 +6,7 @@ function Projects() {
         <section className="Projects">
             <h3>Featured Projects</h3>
             <div className="Projects__grid">
-                <Project project={bugTracker}/>
+                {projects.map(project => <Project key={project.name} project={project}/>)}
             </div>
         </section>
     );
