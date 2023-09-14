@@ -2,7 +2,7 @@
 function Landing() {
 
     return(
-        <section>
+        <section className="Landing">
             landing
         </section>
     );

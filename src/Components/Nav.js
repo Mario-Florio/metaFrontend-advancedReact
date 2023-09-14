@@ -2,7 +2,7 @@
 function Nav() {
 
     return(
-        <nav>
+        <nav className="Nav">
             nav
         </nav>
     );

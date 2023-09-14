@@ -2,7 +2,7 @@
 function Projects() {
 
     return(
-        <section>
+        <section className="Projects">
             projects
         </section>
     );

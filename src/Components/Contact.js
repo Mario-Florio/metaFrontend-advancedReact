@@ -2,7 +2,7 @@
 function Contact() {
 
     return(
-        <section>
+        <section className="Contact">
             contact
         </section>
     );
