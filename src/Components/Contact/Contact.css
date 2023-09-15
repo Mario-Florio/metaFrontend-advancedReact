@@ -13,7 +13,6 @@
 .Contact form {
     display: flex;
     flex-direction: column;
-    align-items: left;
     width: 100%;
     max-width: 630px;
 }
@@ -37,6 +36,22 @@
 
 .Contact textarea {
     height: 200px;
+}
+
+.Contact .invalid {
+    background-color: rgb(241, 176, 176);
+}
+
+.Contact .invalid:focus {
+    border: solid 1.5px red;
+    outline: solid 1px white;
+}
+
+.Contact .errorMsg {
+    font-size: .8rem;
+    text-align: end;
+    color: rgb(0, 0, 0);
+    margin: 0;
 }
 
 .Contact button {

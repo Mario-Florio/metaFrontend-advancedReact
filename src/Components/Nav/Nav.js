@@ -2,7 +2,6 @@ import "./Nav.css";
 import { useState, useEffect } from "react";
 
 function Nav() {
-
     const [show, setShow] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
 

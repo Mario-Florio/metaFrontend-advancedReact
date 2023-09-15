@@ -1,41 +1,28 @@
 import "./Contact.css";
-import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 function Contact() {
-    const [name, setName] = useState(null);
-    const [nameInput, setNameInput] = useState("");
+    const { 
+        register, 
+        handleSubmit, 
+        reset,
+        formState: { errors } 
+    } = useForm();
 
-    const [email, setEmail] = useState(null);
-    const [emailInput, setEmailInput] = useState("");
-
-    const [msg, setMsg] = useState(null);
-    const [msgInput, setMsgInput] = useState("");
-
-    const handleNameChange = e => {
-        setNameInput(e.target.value);
-    }
-
-    const handleEmailChange = e => {
-        setEmailInput(e.target.value);
-    }
-
-    const handleMsgChange = e => {
-        setMsgInput(e.target.value);
-    }
-
-    const handleSubmit = () => {
-        setName(nameInput);
-        setEmail(emailInput);
-        setMsg(msgInput);
-        setNameInput("");
-        setEmailInput("");
-        setMsgInput("");
+    const submit = (data, e) => {
+        e.preventDefault();
+        let contactInfo = {
+            name: data.name,
+            email: data.email,
+            msg: data.msg
+        }
+        reset();
     }
 
     return(
         <section className="Contact">
             <h3>Contact Me</h3>
-            <form onSubmit={e => e.preventDefault()}>
+            <form onSubmit={handleSubmit((data, e) => submit(data, e))}>
                 <label htmlFor="name">
                     Name
                 </label>
@@ -44,9 +31,14 @@ function Contact() {
                     name="name"
                     id="name"
                     autoComplete="on"
-                    value={nameInput} 
-                    onChange={handleNameChange}
+                    className={errors.name && "invalid"}
+                    {...register("name",
+                        {
+                            required: "Please fill in name!"
+                        }
+                    )}
                 />
+                {errors.name && <p className="errorMsg">{errors.name.message}</p>}
                 <label htmlFor="email">
                     Email Address
                 </label>
@@ -55,18 +47,28 @@ function Contact() {
                     name="email"
                     id="email"
                     autoComplete="on"
-                    value={emailInput}
-                    onChange={handleEmailChange}
-                    />
+                    className={errors.email && "invalid"}
+                    {...register("email",
+                        {
+                            required: "Please fill in email!"
+                        }
+                    )}
+                />
+                {errors.email && <p className="errorMsg">{errors.email.message}</p>}
                 <label htmlFor="msg">
                     Your message
                 </label>
                 <textarea
                     name="msg"
                     id="msg"
-                    value={msgInput}
-                    onChange={handleMsgChange}
+                    className={errors.msg && "invalid"}
+                    {...register("msg",
+                        {
+                            required: "Please leave a message!"
+                        }
+                    )}
                 />
+                {errors.msg && <p className="errorMsg">{errors.msg.message}</p>}
                 <button onClick={handleSubmit}>Submit</button>
             </form>
         </section>
