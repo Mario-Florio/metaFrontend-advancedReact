@@ -1,3 +1,18 @@
+header {
+    width: 100vw;
+}
+
+.active {
+    position: fixed;
+    top: 0;
+    transition-duration: .2s;
+}
+
+.hidden {
+    position: fixed;
+    top: -3rem;
+    transition-duration: .2s;
+}
 
 .Nav {
     display: flex;
@@ -5,7 +20,6 @@
     align-items: center;
     padding: 0 2rem;
     height: 3rem;
-    width: 100%;
     color: white;
     background-color: black;
 }
@@ -14,6 +28,12 @@
     display: flex;
     gap: .5rem;
     padding-left: 0;
+}
+
+.hidden {
+    position: fixed;
+    top: -3rem;
+    transition-duration: .2s;
 }
 
 .Nav li {
