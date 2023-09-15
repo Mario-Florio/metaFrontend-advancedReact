@@ -40,4 +40,4 @@ let weatherApp = new Project(
     "https://github.com/Mario-Florio/weather-app"
 );
 
-export let projects = [bugTracker, weatherApp, simpleCalc, littleLemon];
+export let projects = [ bugTracker, weatherApp, simpleCalc, littleLemon ];
