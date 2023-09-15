@@ -8,9 +8,11 @@ function Contact() {
     const [popUp, setPopUp] = useState(false);
 
     useEffect(() => {
-        setTimeout(() => {
+        let timer = setTimeout(() => {
             setPopUp(false);
-        }, 5000)
+        }, 5000);
+
+        return () => clearTimeout(timer);
     }, [popUp]);
 
     const { 
@@ -93,16 +95,27 @@ function Contact() {
 export default Contact;
 
 function PopUp(props) {
+    const [isActive, setIsActive] = useState(false);
+
     const { isSuccess, name } = props;
+
+    useEffect(() => {
+        setIsActive(true);
+        let timer = setTimeout(() => {
+            setIsActive(false);
+        }, 4700);
+
+        return () => clearTimeout(timer);
+    }, []);
 
     return(
         isSuccess ? 
-            <div className="popUp" style={{backgroundColor: "rgb(180, 250, 180)"}}>
+            <div className={isActive ? "popUp--active" : "popUp--inactive"} style={{backgroundColor: "rgb(180, 250, 180)"}}>
                 <h5>Thanks for your submission {name}!</h5>
                 <p>We will get back to you shortly!</p>
             </div>
             :
-            <div className="popUp" style={{backgroundColor: "rgb(241, 176, 176)"}}>
+            <div className="popUp" style={{backgroundColor: "rgb(241, 176, 176)", opacity: "0"}}>
                 <h5>Oops!</h5>
                 <p>Something went wrong, please try again!</p>
             </div>
