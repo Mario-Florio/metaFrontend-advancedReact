@@ -1,4 +1,5 @@
-import { projects } from "../projects";
+import "./Projects.css";
+import { projects } from "../../projects";
 
 function Projects() {
 

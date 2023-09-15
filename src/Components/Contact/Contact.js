@@ -1,3 +1,4 @@
+import "./Contact.css";
 import { useState } from "react";
 
 function Contact() {

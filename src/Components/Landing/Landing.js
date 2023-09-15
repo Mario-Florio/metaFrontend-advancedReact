@@ -1,4 +1,5 @@
-import profilePic from "../images/profile-pic.jpeg";
+import "./Landing.css";
+import profilePic from "../../images/profile-pic.jpeg";
 
 function Landing() {
 

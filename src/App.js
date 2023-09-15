@@ -1,8 +1,8 @@
 import './App.css';
-import Nav from './Components/Nav';
-import Landing from './Components/Landing';
-import Projects from './Components/Projects';
-import Contact from './Components/Contact';
+import Nav from './Components/Nav/Nav';
+import Landing from './Components/Landing/Landing';
+import Projects from './Components/Projects/Projects';
+import Contact from './Components/Contact/Contact';
 
 function App() {
 
