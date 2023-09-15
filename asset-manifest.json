@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/metaFrontend-advancedReact/static/css/main.2200f8f0.css",
+    "main.js": "/metaFrontend-advancedReact/static/js/main.04d3f60e.js",
+    "static/media/littleLemon.png": "/metaFrontend-advancedReact/static/media/littleLemon.0fad2d3cf9ee9b9995df.png",
+    "static/media/weatherApp.png": "/metaFrontend-advancedReact/static/media/weatherApp.3a3d6a896de2a82e239a.png",
+    "static/media/bugTracker.png": "/metaFrontend-advancedReact/static/media/bugTracker.54bd6190c3e5a787d5e0.png",
+    "static/media/profile-pic.jpeg": "/metaFrontend-advancedReact/static/media/profile-pic.2e0b4e1e0e6e1a42ec2d.jpeg",
+    "static/media/simpleCalc.png": "/metaFrontend-advancedReact/static/media/simpleCalc.d7ba87bfe8d97b6f9a23.png",
+    "index.html": "/metaFrontend-advancedReact/index.html",
+    "main.2200f8f0.css.map": "/metaFrontend-advancedReact/static/css/main.2200f8f0.css.map",
+    "main.04d3f60e.js.map": "/metaFrontend-advancedReact/static/js/main.04d3f60e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2200f8f0.css",
+    "static/js/main.04d3f60e.js"
+  ]
+}
