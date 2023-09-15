@@ -1,7 +1,18 @@
+import { useEffect, useState } from "react";
 import "./Contact.css";
 import { useForm } from "react-hook-form";
 
 function Contact() {
+    const [name, setName] = useState("");
+    const [isSuccess, setIsSuccess] = useState(null);
+    const [popUp, setPopUp] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setPopUp(false);
+        }, 5000)
+    }, [popUp]);
+
     const { 
         register, 
         handleSubmit, 
@@ -16,11 +27,15 @@ function Contact() {
             email: data.email,
             msg: data.msg
         }
+        setName(contactInfo.name);
+        setIsSuccess(true);
+        setPopUp(true);
         reset();
     }
 
     return(
         <section className="Contact">
+            {popUp && <PopUp isSuccess={isSuccess} name={name}/>}
             <h3>Contact Me</h3>
             <form onSubmit={handleSubmit((data, e) => submit(data, e))}>
                 <label htmlFor="name">
@@ -76,3 +91,20 @@ function Contact() {
 }
 
 export default Contact;
+
+function PopUp(props) {
+    const { isSuccess, name } = props;
+
+    return(
+        isSuccess ? 
+            <div className="popUp" style={{backgroundColor: "rgb(180, 250, 180)"}}>
+                <h5>Thanks for your submission {name}!</h5>
+                <p>We will get back to you shortly!</p>
+            </div>
+            :
+            <div className="popUp" style={{backgroundColor: "rgb(241, 176, 176)"}}>
+                <h5>Oops!</h5>
+                <p>Something went wrong, please try again!</p>
+            </div>
+    )
+}
