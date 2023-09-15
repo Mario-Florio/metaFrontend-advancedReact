@@ -36,7 +36,7 @@ function Contact() {
     }
 
     return(
-        <section className="Contact">
+        <section className="Contact" id="contact">
             {popUp && <PopUp isSuccess={isSuccess} name={name}/>}
             <h3>Contact Me</h3>
             <form onSubmit={handleSubmit((data, e) => submit(data, e))}>

@@ -33,19 +33,13 @@ function Nav() {
                     <li><a href="https://github.com/Mario-Florio">Github</a></li>
                 </ul>
                 <ul>
-                    <li><a 
-                        href="#about"
-                    >
+                    <li><a href="#about">
                         About
                     </a></li>
-                    <li><a 
-                        href="#projects"
-                    >
+                    <li><a href="#projects">
                         Projects
                     </a></li>
-                    <li><a 
-                        href="#contact"
-                    >
+                    <li><a href="#contact">
                         Contact
                     </a></li>
                 </ul>

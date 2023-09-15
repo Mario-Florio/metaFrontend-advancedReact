@@ -4,7 +4,7 @@ import { projects } from "../../projects";
 function Projects() {
 
     return(
-        <section className="Projects">
+        <section className="Projects" id="projects">
             <h3>Featured Projects</h3>
             <div className="Projects__grid">
                 {projects.map(project => <Project key={project.name} project={project}/>)}

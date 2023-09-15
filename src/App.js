@@ -4,8 +4,6 @@ import Landing from './Components/Landing/Landing';
 import Projects from './Components/Projects/Projects';
 import Contact from './Components/Contact/Contact';
 
-// 2. Add links to certain scroll points on page
-
 function App() {
 
   return (
