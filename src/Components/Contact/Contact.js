@@ -1,45 +1,55 @@
-import { useEffect, useState } from "react";
 import "./Contact.css";
-import { useForm } from "react-hook-form";
+import useSubmit from "../../hooks/useSubmit";
+import { useEffect, useState } from "react";
+import * as Yup from "yup";
+import { useFormik } from "formik";
 
 function Contact() {
-    const [name, setName] = useState("");
-    const [isSuccess, setIsSuccess] = useState(null);
     const [popUp, setPopUp] = useState(false);
+    const [name, setName] = useState(null);
 
     useEffect(() => {
-        let timer = setTimeout(() => {
+        let popUpTimer = setTimeout(() => {
             setPopUp(false);
         }, 5000);
+        return () => clearTimeout(popUpTimer);
+    });
 
-        return () => clearTimeout(timer);
-    }, [popUp]);
-
-    const { 
-        register, 
-        handleSubmit, 
-        reset,
-        formState: { errors } 
-    } = useForm();
-
-    const submit = (data, e) => {
-        e.preventDefault();
-        let contactInfo = {
-            name: data.name,
-            email: data.email,
-            msg: data.msg
-        }
-        setName(contactInfo.name);
-        setIsSuccess(true);
-        setPopUp(true);
-        reset();
-    }
+    const {
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        resetForm
+    } = useFormik({
+        initialValues: {
+            name: "",
+            email: "",
+            enquiry: "Freelance project proposal",
+            msg: "",
+        },
+        onSubmit: values => {
+            setName(values.name);
+            setPopUp(true);
+            resetForm();
+        },
+        validationSchema: Yup.object({
+            name: Yup.string().required('Required'),
+            email: Yup.string().required('Required'),
+            enquiry: Yup.string().required('Required'),
+            msg: Yup.string()
+                .min(25, 'Must be at least 25 characters')
+                .required('Required'),
+        })
+    });
 
     return(
         <section className="Contact" id="contact">
-            {popUp && <PopUp isSuccess={isSuccess} name={name}/>}
+            {popUp && <PopUp isSuccess={true} name={name}/>}
             <h3>Contact Me</h3>
-            <form onSubmit={handleSubmit((data, e) => submit(data, e))}>
+            <form onSubmit={handleSubmit}>
                 <label htmlFor="name">
                     Name
                 </label>
@@ -48,14 +58,12 @@ function Contact() {
                     name="name"
                     id="name"
                     autoComplete="on"
-                    className={errors.name && "invalid"}
-                    {...register("name",
-                        {
-                            required: "Please fill in name!"
-                        }
-                    )}
+                    className={touched.name && errors.name && "invalid"}
+                    value={values.name}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
                 />
-                {errors.name && <p className="errorMsg">{errors.name.message}</p>}
+                {touched.name && errors.name && <p className="errorMsg">{errors.name}</p>}
                 <label htmlFor="email">
                     Email Address
                 </label>
@@ -64,35 +72,49 @@ function Contact() {
                     name="email"
                     id="email"
                     autoComplete="on"
-                    className={errors.email && "invalid"}
-                    {...register("email",
-                        {
-                            required: "Please fill in email!"
-                        }
-                    )}
+                    className={touched.email && errors.email && "invalid"}
+                    value={values.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
                 />
-                {errors.email && <p className="errorMsg">{errors.email.message}</p>}
+                {touched.email && errors.email && <p className="errorMsg">{errors.email}</p>}
+                <label htmlFor="enquiry">
+                    Type of enquiry
+                </label>
+                <select 
+                    name="enquiry"
+                    id="enquiry"
+                    className={touched.enquiry && errors.enquiry && "invalid"}
+                    value={values.enquiry}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                >
+                    <option>Freelance project proposal</option>
+                </select>
+                {touched.enquiry && errors.enquiry && <p className="errorMsg">{errors.enquiry}</p>}
                 <label htmlFor="msg">
                     Your message
                 </label>
                 <textarea
                     name="msg"
                     id="msg"
-                    className={errors.msg && "invalid"}
-                    {...register("msg",
-                        {
-                            required: "Please leave a message!"
-                        }
-                    )}
+                    className={touched.msg && errors.msg && "invalid"}
+                    value={values.msg}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
                 />
-                {errors.msg && <p className="errorMsg">{errors.msg.message}</p>}
-                <button onClick={handleSubmit}>Submit</button>
+                {touched.msg && errors.msg && <p className="errorMsg">{errors.msg}</p>}
+                <button type="submit">Submit<LoadSpinner/></button>
             </form>
         </section>
-    );
+    )
 }
 
 export default Contact;
+
+function LoadSpinner() {
+
+}
 
 function PopUp(props) {
     const [isActive, setIsActive] = useState(false);

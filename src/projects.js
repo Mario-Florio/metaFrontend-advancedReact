@@ -1,7 +1,7 @@
-import bugTrackerImg from "./images/bugTracker.png";
-import simpleCalcImg from "./images/simpleCalc.png";
-import littleLemonImg from "./images/littleLemon.png";
-import weatherAppImg from "./images/weatherApp.png";
+import project1Img from "./images/photo1.jpg";
+import project2Img from "./images/photo2.jpg";
+import project3Img from "./images/photo3.jpg";
+import project4Img from "./images/photo4.jpg";
 
 class Project {
     constructor(name, desc, img, link) {
@@ -12,32 +12,28 @@ class Project {
     }
 }
 
-let bugTracker = new Project(
-    "Bug Tracker", 
-    "Track and manage bugs encountered on your projects.",
-    bugTrackerImg,
-    "https://github.com/Mario-Florio/bug-tracker"
+let project1 = new Project(
+    "Project 1", 
+    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo aliquam sed at.",
+    project1Img
 );
 
-let simpleCalc = new Project(
-    "Simple Calculator",
-    "Perform basic calculations.",
-    simpleCalcImg,
-    "https://github.com/Mario-Florio/metaFrontend-reactBasics"
+let project2 = new Project(
+    "Project 2", 
+    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo aliquam sed at.",
+    project2Img
 );
 
-let littleLemon = new Project(
-    "Little Lemon homepage",
-    "A simple homepage for a mock restaurant, Little Lemon.",
-    littleLemonImg,
-    "https://github.com/Mario-Florio/metaFrontend-htmlCss"
+let project3 = new Project(
+    "Project 3", 
+    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo aliquam sed at.",
+    project3Img
 );
 
-let weatherApp = new Project(
-    "Weather App",
-    "A basic weather app which allows user to access weather data via city or zip code.",
-    weatherAppImg,
-    "https://github.com/Mario-Florio/weather-app"
+let project4 = new Project(
+    "Project 4", 
+    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo aliquam sed at.",
+    project4Img
 );
 
-export let projects = [ bugTracker, weatherApp, simpleCalc, littleLemon ];
+export let projects = [ project1, project2, project3, project4 ];

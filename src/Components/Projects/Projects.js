@@ -19,11 +19,10 @@ function Project(props) {
     const { name, desc, img, link } = props.project;
     return(
         <article className="Projects__card">
-            <a href={link}>
-                <img src={img} alt="project pic"/>
-            </a>
+            <img src={img} alt="project pic"/>
             <h4>{name}</h4>
             <p>{desc}</p>
+            <a href="https://github.com" target="_blank" rel="noreferrer">See more →</a>
         </article>
     );
 }

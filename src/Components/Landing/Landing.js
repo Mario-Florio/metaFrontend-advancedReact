@@ -4,9 +4,9 @@ import profilePic from "../../images/profile-pic.jpeg";
 function Landing() {
 
     return(
-        <section className="Landing" id="about">
+        <section className="Landing">
             <img src={profilePic} alt="profile pic"/>
-            <h2>Hello, I am Mario!</h2>
+            <h2>Hello, I am John!</h2>
             <h1>A frontend developer</h1>
         </section>
     );
