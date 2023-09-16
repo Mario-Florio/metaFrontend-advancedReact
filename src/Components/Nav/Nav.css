@@ -48,3 +48,9 @@ header {
 .Nav a:hover {
     color: red;
 }
+
+@media all and (max-width: 430px) {
+    .Nav {
+        padding: 0 1rem;
+    }
+}
