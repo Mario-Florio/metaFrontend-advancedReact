@@ -5,15 +5,20 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 
 function Contact() {
-    const [popUp, setPopUp] = useState(false);
-    const [name, setName] = useState(null);
+    const [reqResolv, setReqResolv] = useState(false);
+    const { isLoading, response, submit } = useSubmit();
+
+    useEffect(() => {
+        response && setReqResolv(true);
+        response && response.type === 'success' && resetForm();
+    }, [response]);
 
     useEffect(() => {
         let popUpTimer = setTimeout(() => {
-            setPopUp(false);
+            setReqResolv(false);
         }, 5000);
         return () => clearTimeout(popUpTimer);
-    });
+    }, [reqResolv]);
 
     const {
         values,
@@ -31,9 +36,7 @@ function Contact() {
             msg: "",
         },
         onSubmit: values => {
-            setName(values.name);
-            setPopUp(true);
-            resetForm();
+            !isLoading && submit("url", values);
         },
         validationSchema: Yup.object({
             name: Yup.string().required('Required'),
@@ -47,7 +50,7 @@ function Contact() {
 
     return(
         <section className="Contact" id="contact">
-            {popUp && <PopUp isSuccess={true} name={name}/>}
+            {reqResolv && <PopUp response={response}/>}
             <h3>Contact Me</h3>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="name">
@@ -119,7 +122,7 @@ function LoadSpinner() {
 function PopUp(props) {
     const [isActive, setIsActive] = useState(false);
 
-    const { isSuccess, name } = props;
+    const { response } = props;
 
     useEffect(() => {
         setIsActive(true);
@@ -131,15 +134,14 @@ function PopUp(props) {
     }, []);
 
     return(
-        isSuccess ? 
-            <div className={isActive ? "popUp--active" : "popUp--inactive"} style={{backgroundColor: "rgb(180, 250, 180)"}}>
-                <h5>Thanks for your submission {name}!</h5>
-                <p>We will get back to you shortly!</p>
+            <div 
+                className={isActive ? "popUp--active" : "popUp--inactive"} 
+                style={{
+                    backgroundColor: response.type === 'success' ? 'rgb(180, 250, 180)' : 'rgb(900, 150, 150)'
+                }}
+            >
+                <h5>{response.type === 'success' ? 'All good!' : 'Oops!'}</h5>
+                <p>{response.message}</p>
             </div>
-            :
-            <div className="popUp" style={{backgroundColor: "rgb(241, 176, 176)", opacity: "0"}}>
-                <h5>Oops!</h5>
-                <p>Something went wrong, please try again!</p>
-            </div>
-    )
+    );
 }
