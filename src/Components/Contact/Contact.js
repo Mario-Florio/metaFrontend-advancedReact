@@ -107,7 +107,7 @@ function Contact() {
                     onBlur={handleBlur}
                 />
                 {touched.msg && errors.msg && <p className="errorMsg">{errors.msg}</p>}
-                <button type="submit">Submit<LoadSpinner/></button>
+                <button type="submit">Submit<Loader isLoading={isLoading}/></button>
             </form>
         </section>
     )
@@ -115,8 +115,10 @@ function Contact() {
 
 export default Contact;
 
-function LoadSpinner() {
+function Loader(props) {
+    const { isLoading } = props;
 
+    return <div className={isLoading ? "loader--active" : "loader--inactive"}></div>
 }
 
 function PopUp(props) {

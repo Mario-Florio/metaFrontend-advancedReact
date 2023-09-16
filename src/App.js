@@ -15,7 +15,7 @@ function App() {
         <Contact/>
       </main>
       <footer>
-        John © 2023
+        Mario © 2023
       </footer>
     </div>
   );
